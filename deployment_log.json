@@ -1,5 +1,57 @@
 {
-  "deployments": [],
-  "etf_streaks": {},
-  "manager_streaks": {}
+  "deployments": [
+    {
+      "date": "2026-03-06",
+      "ticker": "HHL.TO",
+      "macro_signal": "SCREAMING BUY",
+      "macro_emoji": "\ud83d\udd25",
+      "composite_score": 2,
+      "rsi_rank": 1,
+      "atr_rank": 1,
+      "rsi": 33.35,
+      "adx": NaN,
+      "atr_discount": 0.3073,
+      "pass_type": "override_rsi",
+      "entry_price": 7.33,
+      "manager": "Harvest",
+      "forward_1m": null,
+      "forward_3m": null,
+      "distributions": null
+    },
+    {
+      "date": "2026-03-06",
+      "ticker": "HYLD-U.TO",
+      "macro_signal": "SCREAMING BUY",
+      "macro_emoji": "\ud83d\udd25",
+      "composite_score": 2,
+      "rsi_rank": 1,
+      "atr_rank": 1,
+      "rsi": 43.91,
+      "adx": NaN,
+      "atr_discount": 0.4236,
+      "pass_type": "override_macd",
+      "entry_price": 14.98,
+      "manager": "Harvest",
+      "forward_1m": null,
+      "forward_3m": null,
+      "distributions": null
+    }
+  ],
+  "etf_streaks": {
+    "HHL.TO": {
+      "streak": 0,
+      "last_month": 3,
+      "last_year": 2026
+    },
+    "HYLD-U.TO": {
+      "streak": 1,
+      "last_month": 3,
+      "last_year": 2026
+    }
+  },
+  "manager_streaks": {
+    "Harvest": {
+      "streak": 2
+    }
+  }
 }
