@@ -1,0 +1,79 @@
+name: Dividend Laggard Signal Engine
+
+on:
+  schedule:
+    # 2:55 PM EST (UTC-5) = 19:55 UTC  — runs Nov–Mar (Eastern Standard Time)
+    - cron: '55 19 * * 1-5'
+    # 2:55 PM EDT (UTC-4) = 18:55 UTC  — runs Mar–Nov (Eastern Daylight Time)
+    - cron: '55 18 * * 1-5'
+  # Allow manual trigger from the GitHub Actions tab
+  workflow_dispatch:
+    inputs:
+      s5th_override:
+        description: 'Manual S5TH value (leave blank for auto-calculation)'
+        required: false
+        default: ''
+      nymo_override:
+        description: 'Manual NYMO value (leave blank for auto-fetch)'
+        required: false
+        default: ''
+
+jobs:
+  run-signal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run signal engine
+        run: |
+          ARGS=""
+          if [ -n "${{ github.event.inputs.s5th_override }}" ]; then
+            ARGS="$ARGS --s5th ${{ github.event.inputs.s5th_override }}"
+          fi
+          if [ -n "${{ github.event.inputs.nymo_override }}" ]; then
+            ARGS="$ARGS --nymo ${{ github.event.inputs.nymo_override }}"
+          fi
+          python signal_engine.py $ARGS
+
+      - name: Run monthly audit (first trading day check)
+        run: |
+          DAY=$(date +%d)
+          DOW=$(date +%u)   # 1=Mon, 5=Fri
+          # Run audit if it's the 1st–3rd of the month (catches first Mon/Tue/Wed)
+          if [ "$DAY" -le "3" ] && [ "$DOW" -le "5" ]; then
+            echo "Running monthly audit..."
+            python audit.py
+          else
+            echo "Not first trading day of month — skipping audit."
+          fi
+
+      - name: Commit updated JSON files
+        run: |
+          git config user.name  "Dividend Laggard Bot"
+          git config user.email "bot@dividend-laggard"
+          git add signal_output.json deployment_log.json audit_report.json || true
+          git diff --staged --quiet || git commit -m "Signal update: $(date '+%Y-%m-%d %H:%M EST')"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
