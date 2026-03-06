@@ -1,0 +1,16 @@
+{
+  "generated_at": "Awaiting first run",
+  "generated_date": "",
+  "macro": {
+    "signal": "Awaiting first signal run",
+    "emoji": "⏳",
+    "s5th": null,
+    "nymo": null,
+    "deploy": false,
+    "heavy": false,
+    "fast_pass_active": false,
+    "action": "Signal engine has not run yet. It will run automatically on the next trading day at 2:55 PM EST."
+  },
+  "cad": { "results": [], "decision": { "target": null, "reason": "Awaiting first run.", "ranked": [] } },
+  "usd": { "results": [], "decision": { "target": null, "reason": "Awaiting first run.", "ranked": [] } }
+}
