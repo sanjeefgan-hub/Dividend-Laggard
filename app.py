@@ -79,13 +79,17 @@ st.markdown("""
   /* ── ETF table ── */
   .etf-row {
     display: grid;
-    grid-template-columns: 110px 60px 70px 70px 70px 70px 1fr 120px;
+    grid-template-columns: 100px 50px 50px 70px 65px 45px minmax(0,1fr) 110px;
     gap: 0.4rem;
     align-items: center;
     padding: 0.55rem 0.8rem;
     border-radius: 7px;
     margin-bottom: 0.3rem;
-    font-size: 0.85rem;
+    font-size: 0.83rem;
+  }
+  .etf-reason {
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    font-size: 0.76rem; color: #C9A84C;
   }
   .etf-hdr   { background: #0D1B2A; color: #C9A84C; font-weight: 700;
                font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; }
@@ -309,7 +313,7 @@ def render_etf_table(results: list, title: str):
     <div class="etf-row etf-hdr">
       <span>Ticker</span><span>RSI</span><span>ADX</span>
       <span>Discount</span><span>ATR×0.5</span><span>Score</span>
-      <span>Step 2 Pass Type</span><span>Status</span>
+      <span>Pass Type</span><span>Status</span>
     </div>
     """, unsafe_allow_html=True)
 
@@ -338,7 +342,7 @@ def render_etf_table(results: list, title: str):
               <span class="etf-ticker">{ticker}</span>
               <span class="val-grey">—</span><span class="val-grey">—</span>
               <span class="val-grey">—</span><span class="val-grey">—</span><span class="val-grey">—</span>
-              <span class="val-gold" style="font-size:0.78rem">{reason}</span>
+              <span class="etf-reason" title="{reason}">{reason}</span>
               <span><span class="badge badge-veto">Vetoed</span></span>
             </div>
             """, unsafe_allow_html=True)
@@ -389,7 +393,36 @@ def render_etf_table(results: list, title: str):
 cad_results = signal.get("cad", {}).get("results", [])
 usd_results = signal.get("usd", {}).get("results", [])
 
-tcol1, tcol2 = st.columns([3, 2])
+# ── Universe membership display ───────────────────────────────────────────────
+st.markdown('<div class="sec-title">Monitored Universes</div>', unsafe_allow_html=True)
+ucol1, ucol2 = st.columns(2)
+
+CAD_TICKERS = ["HUTL.TO", "RMAX.TO", "SDAY.NE", "QDAY.NE", "AMAX.TO", "ENCL.TO", "HHL.TO"]
+USD_TICKERS = ["HYLD-U.TO", "HBND-U.TO"]
+
+def ticker_pills(tickers, results):
+    status = {}
+    for r in results:
+        t = r.get("ticker","")
+        if r.get("disqualified"): status[t] = "veto"
+        elif r.get("final_pass"): status[t] = "pass"
+        elif r.get("pass_type") != "system_halt": status[t] = "fail"
+        else: status[t] = "halt"
+
+    pills = ""
+    for t in tickers:
+        s = status.get(t, "halt")
+        color = {"pass":"#34D399","veto":"#FCD34D","fail":"#F87171","halt":"#4A5568"}.get(s,"#4A5568")
+        bg    = {"pass":"#0A2016","veto":"#1A1200","fail":"#1A0000","halt":"#111827"}.get(s,"#111827")
+        pills += f'<span style="display:inline-block;background:{bg};color:{color};border:1px solid {color}33;border-radius:6px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;font-weight:700">{t}</span>'
+    return pills
+
+with ucol1:
+    st.markdown(f'<div style="background:#0D1B2A;border-radius:8px;padding:0.8rem 1rem;border:1px solid #1F2937"><div style="color:#C9A84C;font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.5rem">CAD Universe — Safe Haven: CASH.TO</div>{ticker_pills(CAD_TICKERS, cad_results)}</div>', unsafe_allow_html=True)
+with ucol2:
+    st.markdown(f'<div style="background:#0D1B2A;border-radius:8px;padding:0.8rem 1rem;border:1px solid #1F2937"><div style="color:#C9A84C;font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.5rem">USD Universe — Safe Haven: PSU.U.TO</div>{ticker_pills(USD_TICKERS, usd_results)}</div>', unsafe_allow_html=True)
+
+tcol1, tcol2 = st.columns(2)
 with tcol1:
     render_etf_table(cad_results, "CAD Universe — Steps 0.5 → 1 → 2")
 with tcol2:
