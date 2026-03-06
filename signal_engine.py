@@ -32,7 +32,8 @@ NYMO_ROUTINE_FLOOR = -40
 AUM_FLOOR_CAD      = 50_000_000   # $50M CAD
 AUM_FLOOR_USD      = 40_000_000   # $40M USD
 DIST_CUT_THRESHOLD = 0.10         # >10% below 3-month avg = cut
-VOLUME_FLOOR       = 50_000       # 20-day avg daily volume
+VOLUME_FLOOR_CAD   = 50_000       # 20-day avg daily volume — CAD universe
+VOLUME_FLOOR_USD   =  5_000       # USD-denominated ETFs trade thinner by design
 PEER_LOOKBACK_DAYS = 63           # ~3 months of trading days
 
 # ── Step 1 ────────────────────────────────────────────────────────────────────
@@ -215,7 +216,7 @@ def evaluate_macro(s5th, nymo) -> dict:
 # STEP 0.5 — FUND QUALITY VETOES
 # ══════════════════════════════════════════════════════════════════════════════
 
-def veto_check(ticker: str, aum_floor: float, all_returns: dict) -> dict:
+def veto_check(ticker: str, aum_floor: float, all_returns: dict, volume_floor: int = 50_000) -> dict:
     """
     Run all four fund quality vetoes. Returns per-veto pass/fail and reasons.
     all_returns: dict of {ticker: 3m_return} for peer comparison.
@@ -274,9 +275,9 @@ def veto_check(ticker: str, aum_floor: float, all_returns: dict) -> dict:
                             progress=False, auto_adjust=True))
         vol20 = float(raw["Volume"].dropna().tail(20).mean()) if not raw.empty else 0
         vetoes["liquidity"]["value"] = int(vol20)
-        if vol20 < VOLUME_FLOOR:
+        if vol20 < volume_floor:
             vetoes["liquidity"]["pass"]   = False
-            vetoes["liquidity"]["reason"] = f"20-day avg volume {int(vol20):,} below {VOLUME_FLOOR:,} floor"
+            vetoes["liquidity"]["reason"] = f"20-day avg volume {int(vol20):,} below {volume_floor:,} floor"
             disqualified = True
         else:
             vetoes["liquidity"]["pass"]   = True
@@ -683,7 +684,7 @@ def run():
     cad_vetoes, usd_vetoes = {}, {}
     for t in CAD_UNIVERSE:
         print(f"  {GREY}Vetting {t}...{RESET}", end="\r", flush=True)
-        cad_vetoes[t] = veto_check(t, AUM_FLOOR_CAD, cad_returns)
+        cad_vetoes[t] = veto_check(t, AUM_FLOOR_CAD, cad_returns, VOLUME_FLOOR_CAD)
         if cad_vetoes[t]["disqualified"]:
             fail(f"{t:12s}  DISQUALIFIED — " +
                  " | ".join(v["reason"] for v in cad_vetoes[t]["vetoes"].values()
@@ -694,7 +695,7 @@ def run():
 
     for t in USD_UNIVERSE:
         print(f"  {GREY}Vetting {t}...{RESET}", end="\r", flush=True)
-        usd_vetoes[t] = veto_check(t, AUM_FLOOR_USD, usd_returns)
+        usd_vetoes[t] = veto_check(t, AUM_FLOOR_USD, usd_returns, VOLUME_FLOOR_USD)
         if usd_vetoes[t]["disqualified"]:
             fail(f"{t:12s}  DISQUALIFIED — " +
                  " | ".join(v["reason"] for v in usd_vetoes[t]["vetoes"].values()
