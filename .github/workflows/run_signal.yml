@@ -21,8 +21,6 @@ on:
 jobs:
   run-signal:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     timeout-minutes: 15
 
     steps:
@@ -74,7 +72,9 @@ jobs:
         run: |
           git config user.name  "Dividend Laggard Bot"
           git config user.email "bot@dividend-laggard"
-          git add signal_output.json deployment_log.json audit_report.json || true
+          echo "{ \"last_run\": \"$(date -u '+%Y-%m-%dT%H:%M:%SZ')\" }" > last_run.json
+          git add signal_output.json deployment_log.json last_run.json || true
+          git add audit_report.json 2>/dev/null || true
           git diff --staged --quiet || git commit -m "Signal update: $(date '+%Y-%m-%d %H:%M EST')"
           git push
         env:
