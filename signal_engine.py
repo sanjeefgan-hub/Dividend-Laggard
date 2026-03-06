@@ -72,6 +72,12 @@ def fire(t): print(f"  {GOLD}{BOLD}🔥  {t}{RESET}")
 # INDICATOR CALCULATIONS  (Wilder smoothing — matches TradingView defaults)
 # ══════════════════════════════════════════════════════════════════════════════
 
+def flatten(df: pd.DataFrame) -> pd.DataFrame:
+    """Flatten MultiIndex columns returned by newer yfinance single-ticker downloads."""
+    if isinstance(df.columns, pd.MultiIndex):
+        df.columns = df.columns.get_level_values(0)
+    return df
+
 def calc_rsi(s: pd.Series, p: int = 14) -> float:
     d  = s.diff()
     ag = d.clip(lower=0).ewm(alpha=1/p, min_periods=p, adjust=False).mean()
@@ -264,8 +270,8 @@ def veto_check(ticker: str, aum_floor: float, all_returns: dict) -> dict:
         vetoes["dist_cut"]["reason"] = "Distribution data error — skipped"
 
     try:
-        raw   = yf.download(ticker, period=f"{DATA_DAYS}d", interval="1d",
-                            progress=False, auto_adjust=True)
+        raw   = flatten(yf.download(ticker, period=f"{DATA_DAYS}d", interval="1d",
+                            progress=False, auto_adjust=True))
         vol20 = float(raw["Volume"].dropna().tail(20).mean()) if not raw.empty else 0
         vetoes["liquidity"]["value"] = int(vol20)
         if vol20 < VOLUME_FLOOR:
@@ -340,8 +346,8 @@ def analyse_etf(ticker: str, fast_pass_active: bool, veto_result: dict) -> dict:
         return result
 
     try:
-        raw = yf.download(ticker, period=f"{DATA_DAYS}d", interval="1d",
-                          progress=False, auto_adjust=True)
+        raw = flatten(yf.download(ticker, period=f"{DATA_DAYS}d", interval="1d",
+                          progress=False, auto_adjust=True))
         if raw.empty or len(raw) < 220:
             result["error"] = f"Insufficient data ({len(raw)} rows)"
             return result
