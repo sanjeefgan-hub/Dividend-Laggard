@@ -18,10 +18,10 @@ import time, json, os, sys
 # CONFIGURATION
 # ══════════════════════════════════════════════════════════════════════════════
 
-CAD_UNIVERSE = ["HUTL.TO", "RMAX.TO", "SDAY.TO", "QDAY.TO", "AMAX.TO", "HHL.TO"]
+CAD_UNIVERSE = ["HUTL.TO", "RMAX.TO", "SDAY.NE", "QDAY.NE", "AMAX.TO", "HHL.TO"]
 USD_UNIVERSE = ["HYLD-U.TO", "HBND-U.TO"]
 
-HAMILTON_ETFS = {"HUTL.TO", "RMAX.TO", "SDAY.TO", "QDAY.TO", "AMAX.TO"}
+HAMILTON_ETFS = {"HUTL.TO", "RMAX.TO", "SDAY.NE", "QDAY.NE", "AMAX.TO"}
 HARVEST_ETFS  = {"HHL.TO"}
 
 # ── Step 0 ────────────────────────────────────────────────────────────────────
