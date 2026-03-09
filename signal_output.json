@@ -1,618 +1,136 @@
 {
-  "generated_at": "2026-03-06 21:12 EST",
-  "generated_date": "2026-03-06",
+  "generated_at": "2026-03-09 20:02 EST",
+  "generated_date": "2026-03-09",
   "macro": {
-    "signal": "SCREAMING BUY",
-    "emoji": "\ud83d\udd25",
-    "deploy": true,
-    "heavy": true,
+    "signal": "DATA ERROR",
+    "emoji": "\u26a0\ufe0f",
+    "deploy": false,
+    "heavy": false,
     "fast_pass_active": false,
-    "action": "Heavy Deploy. 100% distributions + 10% reserve tap (max 3/cycle). Fast-Pass DISABLED.",
-    "s5th": 58.25,
-    "nymo": -54.7
+    "action": "Cannot evaluate macro. Do not deploy.",
+    "s5th": null,
+    "nymo": null
   },
   "cad": {
     "results": [
       {
         "ticker": "HUTL.TO",
-        "veto_result": {
-          "vetoes": {
-            "aum": {
-              "pass": true,
-              "value": 428942112,
-              "reason": "AUM $428.9M \u2713"
-            },
-            "dist_cut": {
-              "pass": true,
-              "value": -6.56,
-              "reason": "Distribution stable (-6.6% change) \u2713"
-            },
-            "liquidity": {
-              "pass": true,
-              "value": 55699,
-              "reason": "Volume 55,699/day \u2713"
-            },
-            "peer_nav": {
-              "pass": true,
-              "value": null,
-              "reason": "Peer data insufficient \u2014 skipped"
-            }
-          },
-          "disqualified": false
-        },
         "disqualified": false,
         "step1_pass": false,
         "step2_pass": false,
         "final_pass": false,
-        "structural_laggard": false,
-        "pass_type": null,
-        "price": 20.15,
-        "sma50": 19.1559,
-        "sma200": 18.1993,
-        "atr": 0.204,
-        "atr_discount": -0.9941,
-        "discount_pct": -5.19,
-        "rsi": 63.71,
-        "adx": NaN,
-        "prev_green": false,
-        "roc_2day": false,
-        "error": null,
-        "atr_threshold": 0.102,
-        "macd_bullish_cross": false,
-        "macd_hist_improving": false
+        "pass_type": "system_halt",
+        "veto_result": {
+          "vetoes": {},
+          "disqualified": false
+        }
       },
       {
         "ticker": "RMAX.TO",
-        "veto_result": {
-          "vetoes": {
-            "aum": {
-              "pass": true,
-              "value": 128483856,
-              "reason": "AUM $128.5M \u2713"
-            },
-            "dist_cut": {
-              "pass": true,
-              "value": -2.32,
-              "reason": "Distribution stable (-2.3% change) \u2713"
-            },
-            "liquidity": {
-              "pass": false,
-              "value": 13579,
-              "reason": "20-day avg volume 13,579 below 50,000 floor"
-            },
-            "peer_nav": {
-              "pass": true,
-              "value": null,
-              "reason": "Peer data insufficient \u2014 skipped"
-            }
-          },
-          "disqualified": true
-        },
-        "disqualified": true,
+        "disqualified": false,
         "step1_pass": false,
         "step2_pass": false,
         "final_pass": false,
-        "structural_laggard": false,
-        "pass_type": null,
-        "price": null,
-        "sma50": null,
-        "sma200": null,
-        "atr": null,
-        "atr_discount": null,
-        "discount_pct": null,
-        "rsi": null,
-        "adx": null,
-        "prev_green": null,
-        "roc_2day": null,
-        "error": null
+        "pass_type": "system_halt",
+        "veto_result": {
+          "vetoes": {},
+          "disqualified": false
+        }
       },
       {
         "ticker": "SDAY.NE",
-        "veto_result": {
-          "vetoes": {
-            "aum": {
-              "pass": true,
-              "value": null,
-              "reason": "AUM data unavailable \u2014 skipped"
-            },
-            "dist_cut": {
-              "pass": true,
-              "value": null,
-              "reason": "Insufficient distribution history \u2014 skipped"
-            },
-            "liquidity": {
-              "pass": false,
-              "value": 35899,
-              "reason": "20-day avg volume 35,899 below 50,000 floor"
-            },
-            "peer_nav": {
-              "pass": true,
-              "value": null,
-              "reason": "Peer data insufficient \u2014 skipped"
-            }
-          },
-          "disqualified": true
-        },
-        "disqualified": true,
+        "disqualified": false,
         "step1_pass": false,
         "step2_pass": false,
         "final_pass": false,
-        "structural_laggard": false,
-        "pass_type": null,
-        "price": null,
-        "sma50": null,
-        "sma200": null,
-        "atr": null,
-        "atr_discount": null,
-        "discount_pct": null,
-        "rsi": null,
-        "adx": null,
-        "prev_green": null,
-        "roc_2day": null,
-        "error": null
+        "pass_type": "system_halt",
+        "veto_result": {
+          "vetoes": {},
+          "disqualified": false
+        }
       },
       {
         "ticker": "QDAY.NE",
-        "veto_result": {
-          "vetoes": {
-            "aum": {
-              "pass": true,
-              "value": null,
-              "reason": "AUM data unavailable \u2014 skipped"
-            },
-            "dist_cut": {
-              "pass": true,
-              "value": null,
-              "reason": "Insufficient distribution history \u2014 skipped"
-            },
-            "liquidity": {
-              "pass": true,
-              "value": 53281,
-              "reason": "Volume 53,281/day \u2713"
-            },
-            "peer_nav": {
-              "pass": true,
-              "value": null,
-              "reason": "Peer data insufficient \u2014 skipped"
-            }
-          },
-          "disqualified": false
-        },
         "disqualified": false,
         "step1_pass": false,
         "step2_pass": false,
         "final_pass": false,
-        "structural_laggard": false,
-        "pass_type": null,
-        "price": null,
-        "sma50": null,
-        "sma200": null,
-        "atr": null,
-        "atr_discount": null,
-        "discount_pct": null,
-        "rsi": null,
-        "adx": null,
-        "prev_green": null,
-        "roc_2day": null,
-        "error": "Insufficient data (160 rows)"
+        "pass_type": "system_halt",
+        "veto_result": {
+          "vetoes": {},
+          "disqualified": false
+        }
       },
       {
         "ticker": "AMAX.TO",
-        "veto_result": {
-          "vetoes": {
-            "aum": {
-              "pass": true,
-              "value": 526741344,
-              "reason": "AUM $526.7M \u2713"
-            },
-            "dist_cut": {
-              "pass": true,
-              "value": -14.47,
-              "reason": "Distribution stable (-14.5% change) \u2713"
-            },
-            "liquidity": {
-              "pass": true,
-              "value": 89944,
-              "reason": "Volume 89,944/day \u2713"
-            },
-            "peer_nav": {
-              "pass": true,
-              "value": null,
-              "reason": "Peer data insufficient \u2014 skipped"
-            }
-          },
-          "disqualified": false
-        },
         "disqualified": false,
         "step1_pass": false,
         "step2_pass": false,
         "final_pass": false,
-        "structural_laggard": false,
-        "pass_type": null,
-        "price": 40.07,
-        "sma50": 40.2414,
-        "sma200": 31.5039,
-        "atr": 1.7486,
-        "atr_discount": 0.1714,
-        "discount_pct": 0.43,
-        "rsi": 44.92,
-        "adx": NaN,
-        "prev_green": false,
-        "roc_2day": false,
-        "error": null,
-        "atr_threshold": 0.8743,
-        "macd_bullish_cross": false,
-        "macd_hist_improving": false
+        "pass_type": "system_halt",
+        "veto_result": {
+          "vetoes": {},
+          "disqualified": false
+        }
+      },
+      {
+        "ticker": "ENCL.TO",
+        "disqualified": false,
+        "step1_pass": false,
+        "step2_pass": false,
+        "final_pass": false,
+        "pass_type": "system_halt",
+        "veto_result": {
+          "vetoes": {},
+          "disqualified": false
+        }
       },
       {
         "ticker": "HHL.TO",
-        "veto_result": {
-          "vetoes": {
-            "aum": {
-              "pass": true,
-              "value": null,
-              "reason": "AUM data unavailable \u2014 skipped"
-            },
-            "dist_cut": {
-              "pass": true,
-              "value": 0.0,
-              "reason": "Distribution stable (0.0% change) \u2713"
-            },
-            "liquidity": {
-              "pass": true,
-              "value": 350167,
-              "reason": "Volume 350,167/day \u2713"
-            },
-            "peer_nav": {
-              "pass": true,
-              "value": null,
-              "reason": "Peer data insufficient \u2014 skipped"
-            }
-          },
-          "disqualified": false
-        },
         "disqualified": false,
-        "step1_pass": true,
-        "step2_pass": true,
-        "final_pass": true,
-        "structural_laggard": false,
-        "pass_type": "override_rsi",
-        "price": 7.33,
-        "sma50": 7.6373,
-        "sma200": 7.1846,
-        "atr": 0.1037,
-        "atr_discount": 0.3073,
-        "discount_pct": 4.02,
-        "rsi": 33.35,
-        "adx": NaN,
-        "prev_green": false,
-        "roc_2day": false,
-        "error": null,
-        "atr_threshold": 0.0519,
-        "rsi_rank": 1,
-        "atr_rank": 1,
-        "composite_score": 2,
-        "macd_bullish_cross": false,
-        "macd_hist_improving": false
+        "step1_pass": false,
+        "step2_pass": false,
+        "final_pass": false,
+        "pass_type": "system_halt",
+        "veto_result": {
+          "vetoes": {},
+          "disqualified": false
+        }
       }
     ],
     "decision": {
-      "reason": "#1 composite rank. ETF streak: 0/3. Manager streak: 0/3.",
-      "etf_blocked": false,
-      "mgr_blocked": false,
-      "target": {
-        "ticker": "HHL.TO",
-        "veto_result": {
-          "vetoes": {
-            "aum": {
-              "pass": true,
-              "value": null,
-              "reason": "AUM data unavailable \u2014 skipped"
-            },
-            "dist_cut": {
-              "pass": true,
-              "value": 0.0,
-              "reason": "Distribution stable (0.0% change) \u2713"
-            },
-            "liquidity": {
-              "pass": true,
-              "value": 350167,
-              "reason": "Volume 350,167/day \u2713"
-            },
-            "peer_nav": {
-              "pass": true,
-              "value": null,
-              "reason": "Peer data insufficient \u2014 skipped"
-            }
-          },
-          "disqualified": false
-        },
-        "disqualified": false,
-        "step1_pass": true,
-        "step2_pass": true,
-        "final_pass": true,
-        "structural_laggard": false,
-        "pass_type": "override_rsi",
-        "price": 7.33,
-        "sma50": 7.6373,
-        "sma200": 7.1846,
-        "atr": 0.1037,
-        "atr_discount": 0.3073,
-        "discount_pct": 4.02,
-        "rsi": 33.35,
-        "adx": NaN,
-        "prev_green": false,
-        "roc_2day": false,
-        "error": null,
-        "atr_threshold": 0.0519,
-        "rsi_rank": 1,
-        "atr_rank": 1,
-        "composite_score": 2,
-        "macd_bullish_cross": false,
-        "macd_hist_improving": false
-      },
-      "ranked": [
-        {
-          "ticker": "HHL.TO",
-          "veto_result": {
-            "vetoes": {
-              "aum": {
-                "pass": true,
-                "value": null,
-                "reason": "AUM data unavailable \u2014 skipped"
-              },
-              "dist_cut": {
-                "pass": true,
-                "value": 0.0,
-                "reason": "Distribution stable (0.0% change) \u2713"
-              },
-              "liquidity": {
-                "pass": true,
-                "value": 350167,
-                "reason": "Volume 350,167/day \u2713"
-              },
-              "peer_nav": {
-                "pass": true,
-                "value": null,
-                "reason": "Peer data insufficient \u2014 skipped"
-              }
-            },
-            "disqualified": false
-          },
-          "disqualified": false,
-          "step1_pass": true,
-          "step2_pass": true,
-          "final_pass": true,
-          "structural_laggard": false,
-          "pass_type": "override_rsi",
-          "price": 7.33,
-          "sma50": 7.6373,
-          "sma200": 7.1846,
-          "atr": 0.1037,
-          "atr_discount": 0.3073,
-          "discount_pct": 4.02,
-          "rsi": 33.35,
-          "adx": NaN,
-          "prev_green": false,
-          "roc_2day": false,
-          "error": null,
-          "atr_threshold": 0.0519,
-          "rsi_rank": 1,
-          "atr_rank": 1,
-          "composite_score": 2,
-          "macd_bullish_cross": false,
-          "macd_hist_improving": false
-        }
-      ]
+      "reason": "System halted."
     }
   },
   "usd": {
     "results": [
       {
         "ticker": "HYLD-U.TO",
-        "veto_result": {
-          "vetoes": {
-            "aum": {
-              "pass": true,
-              "value": null,
-              "reason": "AUM data unavailable \u2014 skipped"
-            },
-            "dist_cut": {
-              "pass": true,
-              "value": 0.0,
-              "reason": "Distribution stable (0.0% change) \u2713"
-            },
-            "liquidity": {
-              "pass": true,
-              "value": 21021,
-              "reason": "Volume 21,021/day \u2713"
-            },
-            "peer_nav": {
-              "pass": true,
-              "value": null,
-              "reason": "Peer data insufficient \u2014 skipped"
-            }
-          },
-          "disqualified": false
-        },
         "disqualified": false,
-        "step1_pass": true,
-        "step2_pass": true,
-        "final_pass": true,
-        "structural_laggard": false,
-        "pass_type": "override_macd",
-        "price": 14.98,
-        "sma50": 15.4036,
-        "sma200": 14.5333,
-        "atr": 0.2226,
-        "atr_discount": 0.4236,
-        "discount_pct": 2.75,
-        "rsi": 43.91,
-        "adx": NaN,
-        "prev_green": false,
-        "roc_2day": false,
-        "error": null,
-        "atr_threshold": 0.1113,
-        "rsi_rank": 1,
-        "atr_rank": 1,
-        "composite_score": 2,
-        "macd_bullish_cross": true,
-        "macd_hist_improving": false
-      },
-      {
-        "ticker": "HBND-U.TO",
-        "veto_result": {
-          "vetoes": {
-            "aum": {
-              "pass": true,
-              "value": null,
-              "reason": "AUM data unavailable \u2014 skipped"
-            },
-            "dist_cut": {
-              "pass": true,
-              "value": 1.86,
-              "reason": "Distribution stable (1.9% change) \u2713"
-            },
-            "liquidity": {
-              "pass": false,
-              "value": 1820,
-              "reason": "20-day avg volume 1,820 below 5,000 floor"
-            },
-            "peer_nav": {
-              "pass": true,
-              "value": null,
-              "reason": "Peer data insufficient \u2014 skipped"
-            }
-          },
-          "disqualified": true
-        },
-        "disqualified": true,
         "step1_pass": false,
         "step2_pass": false,
         "final_pass": false,
-        "structural_laggard": false,
-        "pass_type": null,
-        "price": null,
-        "sma50": null,
-        "sma200": null,
-        "atr": null,
-        "atr_discount": null,
-        "discount_pct": null,
-        "rsi": null,
-        "adx": null,
-        "prev_green": null,
-        "roc_2day": null,
-        "error": null
+        "pass_type": "system_halt",
+        "veto_result": {
+          "vetoes": {},
+          "disqualified": false
+        }
+      },
+      {
+        "ticker": "HBND-U.TO",
+        "disqualified": false,
+        "step1_pass": false,
+        "step2_pass": false,
+        "final_pass": false,
+        "pass_type": "system_halt",
+        "veto_result": {
+          "vetoes": {},
+          "disqualified": false
+        }
       }
     ],
     "decision": {
-      "reason": "#1 composite rank. ETF streak: 0/3. Manager streak: 0/3.",
-      "etf_blocked": false,
-      "mgr_blocked": false,
-      "target": {
-        "ticker": "HYLD-U.TO",
-        "veto_result": {
-          "vetoes": {
-            "aum": {
-              "pass": true,
-              "value": null,
-              "reason": "AUM data unavailable \u2014 skipped"
-            },
-            "dist_cut": {
-              "pass": true,
-              "value": 0.0,
-              "reason": "Distribution stable (0.0% change) \u2713"
-            },
-            "liquidity": {
-              "pass": true,
-              "value": 21021,
-              "reason": "Volume 21,021/day \u2713"
-            },
-            "peer_nav": {
-              "pass": true,
-              "value": null,
-              "reason": "Peer data insufficient \u2014 skipped"
-            }
-          },
-          "disqualified": false
-        },
-        "disqualified": false,
-        "step1_pass": true,
-        "step2_pass": true,
-        "final_pass": true,
-        "structural_laggard": false,
-        "pass_type": "override_macd",
-        "price": 14.98,
-        "sma50": 15.4036,
-        "sma200": 14.5333,
-        "atr": 0.2226,
-        "atr_discount": 0.4236,
-        "discount_pct": 2.75,
-        "rsi": 43.91,
-        "adx": NaN,
-        "prev_green": false,
-        "roc_2day": false,
-        "error": null,
-        "atr_threshold": 0.1113,
-        "rsi_rank": 1,
-        "atr_rank": 1,
-        "composite_score": 2,
-        "macd_bullish_cross": true,
-        "macd_hist_improving": false
-      },
-      "ranked": [
-        {
-          "ticker": "HYLD-U.TO",
-          "veto_result": {
-            "vetoes": {
-              "aum": {
-                "pass": true,
-                "value": null,
-                "reason": "AUM data unavailable \u2014 skipped"
-              },
-              "dist_cut": {
-                "pass": true,
-                "value": 0.0,
-                "reason": "Distribution stable (0.0% change) \u2713"
-              },
-              "liquidity": {
-                "pass": true,
-                "value": 21021,
-                "reason": "Volume 21,021/day \u2713"
-              },
-              "peer_nav": {
-                "pass": true,
-                "value": null,
-                "reason": "Peer data insufficient \u2014 skipped"
-              }
-            },
-            "disqualified": false
-          },
-          "disqualified": false,
-          "step1_pass": true,
-          "step2_pass": true,
-          "final_pass": true,
-          "structural_laggard": false,
-          "pass_type": "override_macd",
-          "price": 14.98,
-          "sma50": 15.4036,
-          "sma200": 14.5333,
-          "atr": 0.2226,
-          "atr_discount": 0.4236,
-          "discount_pct": 2.75,
-          "rsi": 43.91,
-          "adx": NaN,
-          "prev_green": false,
-          "roc_2day": false,
-          "error": null,
-          "atr_threshold": 0.1113,
-          "rsi_rank": 1,
-          "atr_rank": 1,
-          "composite_score": 2,
-          "macd_bullish_cross": true,
-          "macd_hist_improving": false
-        }
-      ]
+      "reason": "System halted."
     }
   }
 }
