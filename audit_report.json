@@ -1,0 +1,55 @@
+{
+  "generated": "2026-04-01",
+  "total_deployments": 2,
+  "completed_1m": 0,
+  "completed_3m": 0,
+  "win_rate_1m": null,
+  "win_rate_3m": null,
+  "avg_return_1m": null,
+  "avg_return_3m": null,
+  "total_distributions": 0,
+  "by_pass_type": {},
+  "by_macro_signal": {},
+  "benchmark_flags": {
+    "3m_win_rate_ok": false,
+    "fast_pass_beats_override": null
+  },
+  "recent_deployments": [
+    {
+      "date": "2026-03-06",
+      "ticker": "HHL.TO",
+      "macro_signal": "SCREAMING BUY",
+      "macro_emoji": "\ud83d\udd25",
+      "composite_score": 2,
+      "rsi_rank": 1,
+      "atr_rank": 1,
+      "rsi": 33.35,
+      "adx": NaN,
+      "atr_discount": 0.3073,
+      "pass_type": "override_rsi",
+      "entry_price": 7.33,
+      "manager": "Harvest",
+      "forward_1m": null,
+      "forward_3m": null,
+      "distributions": null
+    },
+    {
+      "date": "2026-03-06",
+      "ticker": "HYLD-U.TO",
+      "macro_signal": "SCREAMING BUY",
+      "macro_emoji": "\ud83d\udd25",
+      "composite_score": 2,
+      "rsi_rank": 1,
+      "atr_rank": 1,
+      "rsi": 43.91,
+      "adx": NaN,
+      "atr_discount": 0.4236,
+      "pass_type": "override_macd",
+      "entry_price": 14.98,
+      "manager": "Harvest",
+      "forward_1m": null,
+      "forward_3m": null,
+      "distributions": null
+    }
+  ]
+}
