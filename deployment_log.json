@@ -16,7 +16,7 @@
       "manager": "Harvest",
       "forward_1m": null,
       "forward_3m": null,
-      "distributions": null
+      "distributions": 0.18
     },
     {
       "date": "2026-03-06",
@@ -34,7 +34,7 @@
       "manager": "Harvest",
       "forward_1m": null,
       "forward_3m": null,
-      "distributions": null
+      "distributions": 0.468
     }
   ],
   "etf_streaks": {

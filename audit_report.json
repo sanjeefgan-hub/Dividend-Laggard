@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-03",
+  "generated": "2026-07-01",
   "total_deployments": 2,
   "completed_1m": 0,
   "completed_3m": 0,
@@ -7,7 +7,7 @@
   "win_rate_3m": null,
   "avg_return_1m": null,
   "avg_return_3m": null,
-  "total_distributions": 0,
+  "total_distributions": 0.65,
   "by_pass_type": {},
   "by_macro_signal": {},
   "benchmark_flags": {
@@ -31,7 +31,7 @@
       "manager": "Harvest",
       "forward_1m": null,
       "forward_3m": null,
-      "distributions": null
+      "distributions": 0.18
     },
     {
       "date": "2026-03-06",
@@ -49,7 +49,7 @@
       "manager": "Harvest",
       "forward_1m": null,
       "forward_3m": null,
-      "distributions": null
+      "distributions": 0.468
     }
   ]
 }
